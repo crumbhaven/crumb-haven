@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Crumb Haven - Premium Cookies" />
+  <meta name="keywords" content="Cookies, Baked Goods, Crumb Haven, Bakery" />
+  <meta name="author" content="Crumb Haven" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crumb Haven</title>
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ---------- Global Styles ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fdf8f2; /* Warm, cream-like background */
+      color: #4a3c31; /* Dark brown text color */
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #b5733f; /* Slightly warmer tone on hover */
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      color: #4a3c31;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+
+    /* ---------- Header & Navigation ---------- */
+    header {
+      background-color: #fff7ec; /* Slightly lighter shade */
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #b5733f; /* Accent color */
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 5px 0;
+    }
+
+    .nav-links a:hover {
+      color: #d08445;
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      width: 100%;
+      height: 60vh;
+      background: url('https://images.unsplash.com/photo-1565895405138-45184f557b1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')
+        center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+    }
+
+    /* Optional subtle overlay for clarity */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .hero-content a {
+      background-color: #b5733f;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .hero-content a:hover {
+      background-color: #d08445;
+    }
+
+    /* ---------- About Section ---------- */
+    .about {
+      background-color: #fdf8f2;
+      text-align: center;
+    }
+
+    .about .container {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .about h2 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Products Section ---------- */
+    .products {
+      background-color: #fff7ec;
+    }
+
+    .products .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #4a3c31;
+    }
+
+    /* ---------- Testimonials Section (Optional) ---------- */
+    .testimonials {
+      background-color: #fdf8f2;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* ---------- Contact Section ---------- */
+    .contact {
+      background-color: #fff7ec;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .contact .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact .contact-form label {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .contact .contact-form input,
+    .contact .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+      resize: none;
+    }
+
+    .contact .contact-form button {
+      align-self: flex-start;
+      background-color: #b5733f;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .contact .contact-form button:hover {
+      background-color: #d08445;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background-color: #4a3c31;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer .footer-social {
+      margin-bottom: 10px;
+    }
+
+    footer .footer-social a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Media Queries for Responsiveness ---------- */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        margin-top: 10px;
+      }
+
+      .hero {
+        height: 50vh;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Crumb Haven</div>
+        <ul class="nav-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Our Cookies</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Crumb Haven</h1>
+      <p>Indulge in freshly baked delights that taste like home.</p>
+      <a href="#products">Shop Cookies</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Crumb Haven</h2>
+      <p>
+        At Crumb Haven, we believe that every bite should transport you to
+        warm memories of home and family. Our cookies are crafted with
+        premium ingredients, sprinkled with love, and baked to perfection.
+        Inspired by traditional recipes and innovative flavors, each cookie
+        is a delightful treat for all ages.
+      </p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="container">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1586985283957-4f0c79f04bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Chocolate Chip Cookies"
+        />
+        <div class="product-info">
+          <h3>Classic Chocolate Chip</h3>
+          <p>
+            Our signature cookie—crisp on the edges, chewy in the middle,
+            loaded with rich chocolate chips.
+          </p>
+        </div>
+      </div>
+      <!-- Product Card 2 -->
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1576660498168-78fcd207e2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Peanut Butter Cookies"
+        />
+        <div class="product-info">
+          <h3>Peanut Butter Bliss</h3>
+          <p>
+            A creamy, nutty delight topped with a hint of sea salt for a
+            perfect sweet and savory combination.
+          </p>
+        </div>
+      </div>
+      <!-- Product Card 3 -->
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1559053748-894c2e424866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Oatmeal Raisin Cookies"
+        />
+        <div class="product-info">
+          <h3>Oatmeal Raisin</h3>
+          <p>
+            A wholesome classic that balances hearty oats and sweet raisins
+            with a dash of cinnamon.
+          </p>
+        </div>
+      </div>
+      <!-- Product Card 4 -->
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1608424295696-e5417d638c6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Red Velvet Cookies"
+        />
+        <div class="product-info">
+          <h3>Red Velvet Dream</h3>
+          <p>
+            Soft and decadent, these vibrant cookies bring the velvety smooth
+            flavor of red velvet cake in a bite-sized treat.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (Optional) -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <p>
+            “Crumb Haven cookies are just like my grandma used to make!
+            Absolutely delicious and always fresh.”
+          </p>
+          <h4>- Sarah M.</h4>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            “I never thought a cookie could taste this good. The peanut butter
+            variety is out of this world!”
+          </p>
+          <h4>- David R.</h4>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            “Red Velvet Dream is my new addiction. The texture is perfect, and
+            the flavor is divine.”
+          </p>
+          <h4>- Emily T.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form class="contact-form" action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Full Name" required />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email Address"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Your Message"
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-social">
+        <a href="#" target="_blank" aria-label="Facebook"
+          ><i class="fa fa-facebook"></i
+        ></a>
+        <a href="#" target="_blank" aria-label="Instagram"
+          ><i class="fa fa-instagram"></i
+        ></a>
+        <a href="#" target="_blank" aria-label="Twitter"
+          ><i class="fa fa-twitter"></i
+        ></a>
+      </div>
+      <p>1234 Cookie Street, Baker City, Sweetland</p>
+      <p>Phone: (123) 456-7890 | Email: info@crumbhaven.com</p>
+      <p>&copy; <span id="year"></span> Crumb Haven. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Minimal JavaScript (Optional) -->
+  <script>
+    // Update footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
